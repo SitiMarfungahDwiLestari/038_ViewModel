@@ -125,10 +125,10 @@ fun TampilForm(cobaViewModel: CobaViewModel = viewModel()){
             textAlmt = it
         }
     )
-
     SelectJK(
         options = jenis.map { id -> context.resources.getString(id)},
         onSelectionChanged = { cobaViewModel.setjenisK(it)}    )
+
     Button(
         modifier = Modifier.fillMaxWidth(),
         onClick = {
@@ -144,8 +144,8 @@ fun TampilForm(cobaViewModel: CobaViewModel = viewModel()){
     TextHasil(
         namanya = cobaViewModel.namaUsr,
         telponnya = cobaViewModel.noTelp,
-        jenisnya = cobaViewModel.jenisKl,
-        alamatnya = cobaViewModel.alamat
+        alamatnya = cobaViewModel.alamat,
+        jenisnya = cobaViewModel.jenisKl
     )
 }
 
@@ -183,7 +183,7 @@ fun SelectJK(
 }
 
 @Composable
-fun TextHasil (namanya: String, telponnya: String, jenisnya: String, alamatnya: String){
+fun TextHasil (namanya: String, telponnya: String, alamatnya: String, jenisnya: String){
     ElevatedCard (
         elevation = CardDefaults.cardElevation(
             defaultElevation = 6.dp
@@ -202,12 +202,12 @@ fun TextHasil (namanya: String, telponnya: String, jenisnya: String, alamatnya: 
                 .padding(horizontal = 10.dp, vertical = 5.dp)
         )
         Text (
-            text = "Jenis Kelamin : " + jenisnya,
+            text = "Alamat : " + alamatnya,
             modifier = Modifier
                 .padding(horizontal = 10.dp, vertical = 5.dp)
         )
         Text (
-            text = "Alamat : " + alamatnya,
+            text = "Jenis Kelamin : " + jenisnya,
             modifier = Modifier
                 .padding(horizontal = 10.dp, vertical = 5.dp)
         )
